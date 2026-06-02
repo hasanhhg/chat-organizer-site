@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog – Claude Organizer</title>
+  <link rel="canonical" href="https://chat-organizer.com/changelog.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:            #F9F7F4;
+      --surface:       #FFFFFF;
+      --border:        #E8E2DA;
+      --text:          #1C1917;
+      --muted:         #79716B;
+      --faint:         #A8A29E;
+      --primary:       #D97756;
+      --primary-h:     #C2633D;
+      --primary-bg:    #FDF3EE;
+      --primary-border:#F0C0A8;
+      --radius:        10px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--primary); }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(249,247,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .nav-back {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-back:hover { color: var(--text); text-decoration: none; }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: var(--faint);
+      margin-bottom: 40px;
+    }
+
+    .release {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .release:last-child { border-bottom: none; }
+
+    .release-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .ver {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .ver-date {
+      font-size: 0.8rem;
+      color: var(--faint);
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--primary);
+      background: var(--primary-bg);
+      border: 1px solid var(--primary-border);
+      border-radius: 999px;
+      padding: 2px 10px;
+    }
+
+    h3 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--faint);
+      margin: 16px 0 8px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 6px;
+    }
+
+    li {
+      font-size: 0.925rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    strong { color: var(--text); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--faint);
+      background: var(--bg);
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon"><img src="icon128.png" alt="" style="width:100%;height:100%;display:block;border-radius:7px;"></div>
+    Claude Organizer
+  </a>
+  <a href="index.html" class="nav-back">Back to home</a>
+</nav>
+
+<main>
+  <h1>Changelog</h1>
+  <p class="meta">What is new in Claude Organizer.</p>
+
+  <div class="release">
+    <div class="release-head">
+      <span class="ver">v1.5</span>
+      <span class="ver-date">June 2026</span>
+      <span class="tag">Security</span>
+    </div>
+    <h3>Security and privacy</h3>
+    <ul>
+      <li><strong>Fewer permissions requested.</strong> The extension now connects only to its own AI backend, not to all workers.dev sites.</li>
+      <li><strong>Hardened AI backend.</strong> The shared AI service now requires an authenticated client and limits requests per IP, so it cannot be misused as an open proxy. Nothing changes in how you use the extension.</li>
+      <li><strong>Smaller package.</strong> Removed unused files from the published build.</li>
+    </ul>
+    <h3>Fixes</h3>
+    <ul>
+      <li>Fixed a message that wrongly mentioned "Claude Pro" when a project could not be created. It now reads "access denied".</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <div class="release-head">
+      <span class="ver">v1.4</span>
+      <span class="ver-date">June 2026</span>
+    </div>
+    <h3>Fixes</h3>
+    <ul>
+      <li><strong>Account switching no longer breaks the extension.</strong> Logging into a different Claude account now clears the cached workspace and retries automatically, instead of showing a "not connected" or 404 error.</li>
+      <li><strong>Removed incorrect "Claude Pro required" message.</strong> Projects work on every Claude tier, so the message now reflects the real cause.</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <div class="release-head">
+      <span class="ver">v1.3</span>
+      <span class="ver-date">May 2026</span>
+    </div>
+    <ul>
+      <li>AI categorization for ambiguous chat titles, with no API key needed.</li>
+      <li>Multilingual keyword matching across many languages.</li>
+      <li>Preview the full plan before a single chat moves.</li>
+      <li>Faster batch moves and automatic cleanup of empty projects.</li>
+      <li>Manual mode for assigning chats by hand.</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <div class="release-head">
+      <span class="ver">v1.2</span>
+      <span class="ver-date">Initial release</span>
+    </div>
+    <ul>
+      <li>Keyword based chat-to-project matching.</li>
+      <li>Single-click organize with a preview log.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p>Claude Organizer &middot; <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="mailto:contact@chat-organizer.com">Contact</a> &middot; Not affiliated with Anthropic</p>
+</footer>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K9J7DHMT4V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-K9J7DHMT4V');
+</script>
+
+</body>
+</html>
