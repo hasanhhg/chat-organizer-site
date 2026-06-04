@@ -195,6 +195,18 @@
 
   <div class="release">
     <div class="release-head">
+      <span class="ver">v1.7.8</span>
+      <span class="ver-date">June 2026</span>
+      <span class="tag">Performance</span>
+    </div>
+    <h3>Faster</h3>
+    <ul>
+      <li><strong>Organizing is now nearly instant.</strong> The Claude.ai batch endpoint moves all chats at once but reports an error anyway, which made the extension redundantly re-move every chat. It now detects the batch already succeeded and skips the extra work, so moving many chats takes about two requests instead of one per chat.</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <div class="release-head">
       <span class="ver">v1.7.7</span>
       <span class="ver-date">June 2026</span>
       <span class="tag">Performance</span>
