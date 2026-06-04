@@ -195,6 +195,18 @@
 
   <div class="release">
     <div class="release-head">
+      <span class="ver">v1.7.5</span>
+      <span class="ver-date">June 2026</span>
+      <span class="tag">Fix</span>
+    </div>
+    <h3>Bug fix</h3>
+    <ul>
+      <li><strong>Fixed "remove all chats from projects" reporting success without removing them.</strong> The Claude.ai batch endpoint had started silently ignoring bulk removals. The tool now verifies the result, retries any leftovers one by one, and reports the real number removed.</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <div class="release-head">
       <span class="ver">v1.7.4</span>
       <span class="ver-date">June 2026</span>
       <span class="tag">Fix</span>
