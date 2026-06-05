@@ -221,5 +221,24 @@
         if (lang && B[lang]) applyLangToBanner(lang);
       });
     });
+
+    // Track "Add to Chrome" clicks as GA4 conversions
+    // Each button gets a location label so you can see which section converts best
+    var CWS = 'chromewebstore.google.com';
+    var locationMap = {
+      'nav-cta':  'nav',
+      'btn-primary': 'hero',
+      'btn-band': 'mid_band',
+      'btn-white': 'bottom_cta'
+    };
+    document.querySelectorAll('a[href*="' + CWS + '"]').forEach(function (a) {
+      var location = 'footer';
+      for (var cls in locationMap) {
+        if (a.classList.contains(cls)) { location = locationMap[cls]; break; }
+      }
+      a.addEventListener('click', function () {
+        gtag('event', 'add_to_chrome', { button_location: location });
+      });
+    });
   });
 })();
