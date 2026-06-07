@@ -9,7 +9,9 @@
  * To enable Microsoft Clarity (session replay / heatmaps):
  *   1. Set CLARITY_ID below to your Clarity project id.
  *   2. Add these origins to the Content-Security-Policy meta tag on every page:
- *        script-src  : https://www.clarity.ms
+ *        script-src  : https://*.clarity.ms   (NOT just www.clarity.ms — the
+ *                      loader pulls the real recorder from scripts.clarity.ms,
+ *                      so a www-only script-src silently blocks all recording)
  *        img-src     : https://*.clarity.ms
  *        connect-src : https://*.clarity.ms https://c.bing.com
  * Clarity then loads only after consent, just like GA.
