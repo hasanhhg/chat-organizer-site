@@ -220,7 +220,12 @@
     document.querySelectorAll('.lang-option').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var lang = btn.dataset.lang;
-        if (lang && B[lang]) applyLangToBanner(lang);
+        if (lang && B[lang]) {
+          applyLangToBanner(lang);
+          // Track which languages visitors actually switch to (justifies translations)
+          gtag('event', 'language_select', { selected_language: lang });
+          if (window.clarity) window.clarity('set', 'language', lang);
+        }
       });
     });
 
@@ -240,6 +245,12 @@
       }
       a.addEventListener('click', function () {
         gtag('event', 'add_to_chrome', { button_location: location });
+        // Tag the Clarity session so you can filter recordings of people who
+        // actually clicked install (converters) vs everyone else.
+        if (window.clarity) {
+          window.clarity('set', 'clicked_install', location);
+          window.clarity('upgrade', 'add_to_chrome');
+        }
       });
     });
   });
