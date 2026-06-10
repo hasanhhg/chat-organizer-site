@@ -416,6 +416,10 @@
     .footer-links a:hover { color: var(--text); text-decoration: none; }
     .footer-copy { font-size: 0.73rem; color: var(--faint); margin-top: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--border-soft); text-align: center; max-width: var(--max-w); margin-left: auto; margin-right: auto; }
 
+    /* ─── SCROLL REVEAL (class added by JS only, so no-JS users see everything) ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
     /* ─── RTL (Arabic) ───────────────────────────────────── */
     html[dir="rtl"] .lang-menu { right: auto; left: 0; }
     html[dir="rtl"] .nav-right { flex-direction: row-reverse; }
@@ -549,7 +553,7 @@
             <div class="popup-header">
               <div class="popup-brand">
                 <div class="popup-icon"><img src="icon128.png" alt=""></div>
-                Claude Organizer <span class="popup-ver">v1.8.0</span>
+                Claude Organizer <span class="popup-ver">v1.9.0</span>
               </div>
               <div class="popup-connected">Connected</div>
             </div>
@@ -825,6 +829,28 @@
 
 <!-- Translations -->
 <script src="translations.js"></script>
+
+<!-- Scroll-reveal: progressive enhancement, skipped for reduced motion / no IO support -->
+<script>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = document.querySelectorAll('.step, .feature, .privacy-card, .testimonial, .permission-item');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function (el, i) {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i % 3) * 70 + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
 
 </body>
 </html>

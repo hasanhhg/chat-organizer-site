@@ -473,14 +473,33 @@
     return T[nav] ? nav : 'en';
   }
 
-  // Wire up switcher
+  // Wire up switcher (with keyboard support: Escape closes, focus returns to button)
   var btn  = document.querySelector('.lang-btn');
   var menu = document.querySelector('.lang-menu');
   if (btn && menu) {
-    btn.addEventListener('click', function(e) { e.stopPropagation(); menu.classList.toggle('open'); });
-    document.addEventListener('click', function() { menu.classList.remove('open'); });
+    function closeMenu() {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      if (open) {
+        var active = menu.querySelector('.lang-option.active');
+        if (active) active.focus();
+      }
+    });
+    document.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        closeMenu();
+        btn.focus();
+      }
+    });
     document.querySelectorAll('.lang-option').forEach(function(opt) {
-      opt.addEventListener('click', function() { applyLang(opt.dataset.lang); menu.classList.remove('open'); });
+      opt.addEventListener('click', function() { applyLang(opt.dataset.lang); closeMenu(); });
     });
   }
 
