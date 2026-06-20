@@ -479,6 +479,15 @@
       if (val !== undefined) el.innerHTML = val;
     });
 
+    // Color the platform names in the hero headline (Claude orange, ChatGPT green)
+    // in every language. Runs after the i18n pass re-sets the raw headline text.
+    var heroH1 = document.querySelector('[data-i18n-html="hero.h1"]');
+    if (heroH1) {
+      heroH1.innerHTML = heroH1.innerHTML
+        .replace(/ChatGPT/g, '<span class="brand-chatgpt">ChatGPT</span>')
+        .replace(/Claude/g, '<span class="brand-claude">Claude</span>');
+    }
+
     document.querySelectorAll('.lang-option').forEach(function(btn) {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });

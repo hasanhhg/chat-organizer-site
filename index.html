@@ -305,6 +305,9 @@
       margin-bottom: var(--s3); color: var(--text);
     }
     .hero-content h1 em { font-style: normal; color: var(--primary); }
+    /* Platform names keep their brand color wherever they label a platform. */
+    .brand-claude  { color: #D97756; }
+    .brand-chatgpt { color: #10A37F; }
     .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 44ch; margin-bottom: var(--s3); line-height: 1.65; }
     .hero-stars { display: flex; align-items: center; gap: var(--s1); font-size: var(--t-sm); color: var(--muted); margin-bottom: var(--s3); }
     .hero-stars .stars { color: #F59E0B; font-size: 1rem; letter-spacing: 1px; }
@@ -345,8 +348,9 @@
     .seg-slider { position: absolute; top: 4px; left: 4px; width: calc(50% - 4px); height: calc(100% - 8px); background: var(--primary); border-radius: 7px; box-shadow: 0 2px 6px rgba(20,23,28,0.22); transition: transform .45s cubic-bezier(.34,1.56,.64,1); z-index: 0; }
     .popup-switch.cg .seg-slider { transform: translateX(100%); }
     .popup-seg { position: relative; z-index: 1; flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 8px; background: transparent; border: none; border-radius: 7px; color: var(--muted); font-size: 0.7rem; font-weight: 700; cursor: pointer; user-select: none; transition: color .3s ease, transform .12s ease; }
+    .popup-seg.p-claude:not(.active)  { color: #D97756; }
+    .popup-seg.p-chatgpt:not(.active) { color: #10A37F; }
     .popup-seg.active { color: #fff; }
-    .popup-seg:not(.active):hover { color: var(--text); }
     .popup-seg:active { transform: scale(0.96); }
     .seg-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .35s ease; }
     .seg-dot.claude { background: #D97756; }
@@ -613,8 +617,8 @@
             </div>
             <div class="popup-switch">
               <span class="seg-slider"></span>
-              <div class="popup-seg active"><span class="seg-dot claude"></span>Claude</div>
-              <div class="popup-seg"><span class="seg-dot chatgpt"></span>ChatGPT</div>
+              <div class="popup-seg p-claude active"><span class="seg-dot claude"></span>Claude</div>
+              <div class="popup-seg p-chatgpt"><span class="seg-dot chatgpt"></span>ChatGPT</div>
             </div>
             <div class="popup-tabs">
               <div class="popup-tab active">Auto-Organize</div>
