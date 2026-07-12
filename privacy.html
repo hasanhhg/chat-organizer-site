@@ -10,6 +10,39 @@
   <meta name="description" content="Chat Organizer is privacy-first: no tracking, no telemetry, and no data collection in the extension. Your Claude and ChatGPT chats stay in your browser.">
   <link rel="canonical" href="https://chat-organizer.com/privacy.html">
 
+  <!-- Organization + WebSite (same entity as homepage) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://chat-organizer.com/#org",
+        "name": "Chat Organizer",
+        "url": "https://chat-organizer.com",
+        "logo": { "@type": "ImageObject", "url": "https://chat-organizer.com/icon128.png", "width": 128, "height": 128 },
+        "sameAs": ["https://chromewebstore.google.com/detail/bipbaacophbcpboieghjoigjlbemchcm"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://chat-organizer.com/#website",
+        "url": "https://chat-organizer.com",
+        "name": "Chat Organizer",
+        "publisher": { "@id": "https://chat-organizer.com/#org" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://chat-organizer.com/privacy.html",
+        "url": "https://chat-organizer.com/privacy.html",
+        "name": "Privacy Policy – Chat Organizer",
+        "isPartOf": { "@id": "https://chat-organizer.com/#website" },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
+
   <!-- Open Graph -->
   <meta property="og:title" content="Privacy Policy – Chat Organizer">
   <meta property="og:description" content="Chat Organizer is privacy-first. No tracking, no telemetry, no data collection in the extension.">
@@ -192,7 +225,7 @@
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-icon"><img src="icon128.png" alt="" style="width:100%;height:100%;display:block;border-radius:7px;"></div>
+    <div class="nav-logo-icon"><img src="icon128.png" alt="Chat Organizer icon" style="width:100%;height:100%;display:block;border-radius:7px;"></div>
     Chat Organizer
   </a>
   <a href="index.html" class="nav-back">Back to home</a>
