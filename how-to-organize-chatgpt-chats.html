@@ -72,7 +72,7 @@
     "description": "A practical guide to organizing ChatGPT chats into Projects, by hand and automatically with the free Chat Organizer Chrome extension.",
     "image": "https://chat-organizer.com/social-preview.png",
     "datePublished": "2026-05-20",
-    "dateModified": "2026-06-25",
+    "dateModified": "2026-07-22",
     "inLanguage": "en",
     "author": { "@type": "Organization", "name": "Chat Organizer", "url": "https://chat-organizer.com" },
     "publisher": { "@type": "Organization", "name": "Chat Organizer", "logo": { "@type": "ImageObject", "url": "https://chat-organizer.com/icon128.png" } },
@@ -107,7 +107,10 @@
       { "@type": "Question", "name": "Is there a tool to organize ChatGPT chats?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Chat Organizer is a free Chrome extension that auto-sorts your ChatGPT chats into Projects in one click. It uses keyword matching plus AI and needs no API key or account." } },
       { "@type": "Question", "name": "How do I organize chats in ChatGPT manually?", "acceptedAnswer": { "@type": "Answer", "text": "In ChatGPT you can create a Project and move individual chats into it from the chat menu. This works for a handful of chats but becomes slow once you have dozens or hundreds, which is what the extension automates." } },
       { "@type": "Question", "name": "Does organizing delete any of my ChatGPT chats?", "acceptedAnswer": { "@type": "Answer", "text": "No. Chats are only moved into Projects, never deleted. On ChatGPT the extension also never deletes a Project, because deleting a ChatGPT Project would delete the chats inside it. Every conversation stays in your history." } },
-      { "@type": "Question", "name": "Is it free and does it need an API key?", "acceptedAnswer": { "@type": "Answer", "text": "It is completely free with no subscription, and it needs no API key and no account. The AI categorization runs on a shared backend at no cost to you." } }
+      { "@type": "Question", "name": "Is it free and does it need an API key?", "acceptedAnswer": { "@type": "Answer", "text": "It is completely free with no subscription, and it needs no API key and no account. The AI categorization runs on a shared backend at no cost to you." } },
+      { "@type": "Question", "name": "Does ChatGPT have folders?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT calls them Projects. They group related chats together, but ChatGPT does not file your existing conversations into them automatically. Chat Organizer does that part, sorting your whole backlog into Projects in one click." } },
+      { "@type": "Question", "name": "How do I organize hundreds of ChatGPT chats at once?", "acceptedAnswer": { "@type": "Answer", "text": "By hand it is roughly ten seconds per chat, so a few hundred chats is about an hour of clicking. Chat Organizer categorizes them in batches and applies every move in one pass, so a large backlog sorts in seconds. Run it again to work through older chats." } },
+      { "@type": "Question", "name": "Can one extension organize both ChatGPT and Claude?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Chat Organizer works on chatgpt.com and claude.ai. A switcher in the popup picks the platform and auto-detects the tab you are on, so the same one-click flow works on both." } }
     ]
   }
   </script>
@@ -263,6 +266,15 @@
     <li><strong>Use Manual Mode for the leftovers.</strong> Anything that could not be auto-categorized can be assigned by hand in a couple of clicks.</li>
   </ul>
 
+  <h2>Does ChatGPT have folders?</h2>
+  <p>Not folders by that name, no. ChatGPT calls them <strong>Projects</strong>, and they do the same job: a named container that groups related conversations together, with its own instructions and files. So if you have been searching for "ChatGPT folders", Projects are the feature you are looking for.</p>
+  <p>The catch is that ChatGPT does not sort anything into Projects for you. Creating a Project takes seconds, but filing a backlog of a few hundred existing chats into the right ones is entirely manual, one conversation at a time. That gap between "the feature exists" and "my sidebar is actually tidy" is the part Chat Organizer closes.</p>
+
+  <h2>Organizing hundreds of ChatGPT chats at once</h2>
+  <p>Doing this by hand does not scale. At roughly ten seconds per chat, a 300 chat backlog is close to an hour of clicking, which is exactly why most people give up and keep scrolling instead.</p>
+  <p>Chat Organizer is built for that backlog. It reads your unorganized chats in bulk, categorizes them in batches rather than one request at a time, and applies every move in a single pass. A few hundred chats sort in seconds instead of an evening.</p>
+  <p>Each run focuses on your most recent chats so it stays fast and predictable. Because organized chats drop out of the queue, you can simply run it again to work through an older backlog in batches, and a quick weekly run keeps things tidy from then on.</p>
+
   <h2>Is it safe?</h2>
   <p>Yes. Nothing is ever deleted, only moved. On ChatGPT the extension never deletes a Project either, because deleting a ChatGPT Project would delete the chats inside it. Your chats are read through your own active ChatGPT session and never stored on a server. For ambiguous titles, only the short chat title (never the conversation content) is sent to a shared AI service to pick a category. The extension ships no analytics and no tracking. You can read the full <a href="privacy.html">privacy policy</a>.</p>
 
@@ -281,6 +293,9 @@
     <details><summary>How do I organize chats in ChatGPT manually?</summary><div class="a">In ChatGPT you can create a Project and move individual chats into it from each chat menu. This works for a handful of chats but becomes slow once you have dozens or hundreds, which is what the extension automates.</div></details>
     <details><summary>Does organizing delete any of my ChatGPT chats?</summary><div class="a">No. Chats are only moved into Projects, never deleted. On ChatGPT the extension also never deletes a Project, because deleting a ChatGPT Project would delete the chats inside it. Every conversation stays in your history.</div></details>
     <details><summary>Is it free and does it need an API key?</summary><div class="a">It is completely free with no subscription, and it needs no API key and no account. The AI categorization runs on a shared backend at no cost to you.</div></details>
+    <details><summary>Does ChatGPT have folders?</summary><div class="a">ChatGPT calls them Projects. They group related chats together, but ChatGPT does not file your existing conversations into them automatically. Chat Organizer does that part, sorting your whole backlog into Projects in one click.</div></details>
+    <details><summary>How do I organize hundreds of ChatGPT chats at once?</summary><div class="a">By hand it is roughly ten seconds per chat, so a few hundred chats is about an hour of clicking. Chat Organizer categorizes them in batches and applies every move in one pass, so a large backlog sorts in seconds. Run it again to work through older chats.</div></details>
+    <details><summary>Can one extension organize both ChatGPT and Claude?</summary><div class="a">Yes. Chat Organizer works on chatgpt.com and claude.ai. A switcher in the popup picks the platform and auto-detects the tab you are on, so the same one-click flow works on both.</div></details>
   </div>
 </main>
 
